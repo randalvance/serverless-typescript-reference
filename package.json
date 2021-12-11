@@ -5,6 +5,7 @@
   "main": "serverless.ts",
   "scripts": {
     "start": "sls offline",
+    "build": "sls package",
     "deploy": "sls deploy",
     "restore-layer": "npm --prefix ./layer/nodejs ci ./layer/nodejs",
     "test": "echo \"Error: no test specified\" && exit 1"

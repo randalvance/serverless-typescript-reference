@@ -1,6 +1,6 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
+import functions from '@functions/index';
 
 const serverlessConfiguration: AWS = {
   service: 'hello-sls',
@@ -28,23 +28,23 @@ const serverlessConfiguration: AWS = {
     lambdaHashingVersion: '20201221',
   },
   layers: {
-    dependencies: {
+    MyLayer: {
       path: 'layer'
     }
   },
   // import the function via paths
-  functions: { hello },
-  package: { individually: true },
+  functions: functions,
+  package: { individually: true, exclude: ['node_modules'] },
   custom: {
     esbuild: {
       bundle: true,
       minify: false,
       sourcemap: true,
-      exclude: ['aws-sdk'],
+      exclude: ['aws-sdk', 'uuid', '@middy'],
       target: 'node14',
       define: { 'require.resolve': undefined },
       platform: 'node',
-      concurrency: 10,
+      concurrency: 10
     },
   },
 };
