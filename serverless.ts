@@ -10,6 +10,7 @@ const serverlessConfiguration: AWS = {
     name: 'aws',
     runtime: 'nodejs14.x',
     region: 'ap-southeast-1',
+    stackName: 'hello-sls-stack-dev',
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -25,6 +26,11 @@ const serverlessConfiguration: AWS = {
       role: 'arn:aws:iam::962903071363:role/hello-lambda-role'
     },
     lambdaHashingVersion: '20201221',
+  },
+  layers: {
+    dependencies: {
+      path: 'layer'
+    }
   },
   // import the function via paths
   functions: { hello },

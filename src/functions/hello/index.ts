@@ -1,5 +1,6 @@
 import schema from './schema';
 import { handlerPath } from '@libs/handlerResolver';
+import { Function } from '@libs/serverless-types';
 
 export default {
   handler: `${handlerPath(__dirname)}/handler.main`,
@@ -14,6 +15,17 @@ export default {
           }
         }
       }
+    },
+    {
+      http: {
+        method: 'get',
+        path: 'hello'
+      }
+    }
+  ],
+  layers: [
+    {
+      Ref: 'dependenciesLambdaLayer'
     }
   ]
-}
+} as Function;
