@@ -1,12 +1,11 @@
 import type { AWS } from '@serverless/typescript';
-import type { Lift } from 'serverless-lift';
 
 import functions from '@functions/index';
 
-const serverlessConfiguration: AWS & Lift = {
+const serverlessConfiguration: AWS = {
   service: 'hello-sls',
   frameworkVersion: '2',
-  plugins: ['serverless-esbuild', 'serverless-lift'],
+  plugins: ['serverless-offline', 'serverless-esbuild'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -31,14 +30,6 @@ const serverlessConfiguration: AWS & Lift = {
   layers: {
     MyLayer: {
       path: 'layer'
-    }
-  },
-  constructs: {
-    job: {
-      type: 'queue',
-      worker: {
-        handler: 'src/functions/sqsHandler/handler.main'
-      }
     }
   },
   // import the function via paths

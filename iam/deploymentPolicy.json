@@ -1,0 +1,82 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "VisualEditor0",
+          "Effect": "Allow",
+          "Action": [
+              "cloudformation:CreateStack",
+              "cloudformation:DeleteStack",
+              "cloudformation:DescribeStacks",
+              "cloudformation:DescribeStackEvents",
+              "cloudformation:ListStackResources",
+              "cloudformation:UpdateStack",
+              "lambda:AddPermission",
+              "lambda:GetFunction",
+              "lambda:CreateFunction",
+              "lambda:DeleteFunction",
+              "lambda:ListVersionsByFunction",
+              "lambda:PublishVersion",
+              "lambda:DeleteLayerVersion",
+              "lambda:GetLayerVersion",
+              "lambda:PublishLayerVersion",
+              "lambda:UpdateFunctionCode",
+              "lambda:RemovePermission",
+              "lambda:UpdateFunctionConfiguration",
+              "logs:CreateLogGroup",
+              "logs:DeleteLogGroup",
+              "s3:GetBucketLocation",
+              "s3:GetObject",
+              "s3:ListBucket",
+              "s3:PutObject"
+          ],
+          "Resource": [
+              "arn:aws:cloudformation:ap-southeast-1:962903071363:stack/hello-sls-stack-*/*",
+              "arn:aws:s3:::serverless-deployment-bucket",
+              "arn:aws:s3:::serverless-deployment-bucket/*",
+              "arn:aws:lambda:ap-southeast-1:962903071363:function:hello-sls-*",
+              "arn:aws:lambda:ap-southeast-1:962903071363:layer:MyLayer*",
+              "arn:aws:logs:ap-southeast-1:962903071363:log-group:/aws/lambda/hello-*"
+          ]
+      },
+      {
+          "Sid": "VisualEditor1",
+          "Effect": "Allow",
+          "Action": "cloudformation:ValidateTemplate",
+          "Resource": "*"
+      },
+      {
+          "Sid": "VisualEditor2",
+          "Effect": "Allow",
+          "Action": "apigateway:*",
+          "Resource": [
+              "arn:aws:apigateway:*::/restapis*"
+          ]
+      },
+      {
+          "Sid": "VisualEditor3",
+          "Effect": "Allow",
+          "Action": "iam:PassRole",
+          "Resource": [
+              "arn:aws:iam::962903071363:role/hello-lambda-role"
+          ]
+      },
+      {
+          "Sid": "VisualEditor4",
+          "Effect": "Allow",
+          "Action": [
+              "lambda:GetEventSourceMapping",
+              "lambda:DeleteEventSourceMapping",
+              "lambda:CreateEventSourceMapping"
+          ],
+          "Resource": [
+              "arn:aws:lambda:ap-southeast-1:962903071363:function:hello-sls-dev-sqsHandler",
+              "arn:aws:lambda:ap-southeast-1:962903071363:event-source-mapping:*"
+          ]
+      },
+      {
+          
+      }
+      }
+  ]
+}

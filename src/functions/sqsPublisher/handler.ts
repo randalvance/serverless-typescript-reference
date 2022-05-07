@@ -11,7 +11,7 @@ const sqs = new AWS.SQS({
 const handler: ValidatedEventAPIGatewayProxyEvent<unknown> = async () => {
     // Send a message into SQS
     await sqs.sendMessage({
-      QueueUrl: process.env.QUEUE_URL,
+      QueueUrl: 'https://sqs.ap-southeast-1.amazonaws.com/962903071363/hello-queue',
       // Any message data we want to send
       MessageBody: JSON.stringify({
           fileName: 'foo/bar.mp4'
