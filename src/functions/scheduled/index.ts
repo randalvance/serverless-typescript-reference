@@ -6,7 +6,7 @@ export default {
   events: [
     {
       schedule: {
-        rate: ['rate(every minute)'],
+        rate: ['rate(every hour)'],
         enabled: true
       }
     }
