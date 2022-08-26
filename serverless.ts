@@ -10,7 +10,6 @@ const serverlessConfiguration: AWS = {
     name: 'aws',
     runtime: 'nodejs14.x',
     region: 'ap-southeast-1',
-    stackName: 'hello-sls-stack-dev',
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
