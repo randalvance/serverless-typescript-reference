@@ -3,6 +3,7 @@ import goodbye from './goodbye';
 import scheduled from './scheduled';
 import sqsHandler from './sqsHandler';
 import sqsPublisher from './sqsPublisher';
+import * as websocket from './websocket';
 
 export default {
     hello,
@@ -10,4 +11,5 @@ export default {
     scheduled,
     sqsHandler,
     sqsPublisher,
+    ...websocket,
 };
