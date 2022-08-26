@@ -4,13 +4,12 @@ import functions from '@functions/index';
 
 const serverlessConfiguration: AWS = {
   service: 'hello-sls',
-  frameworkVersion: '2',
-  plugins: ['serverless-esbuild'],
+  frameworkVersion: '3',
+  plugins: ['serverless-offline', 'serverless-esbuild'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
     region: 'ap-southeast-1',
-    stackName: 'hello-sls-stack-dev',
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
