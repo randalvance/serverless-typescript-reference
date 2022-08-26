@@ -1,1 +1,2 @@
-export * from './connect';
+export { connect } from './connect';
+export { echo } from './echo';

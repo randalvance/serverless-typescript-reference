@@ -25,6 +25,8 @@ const serverlessConfiguration: AWS = {
       role: 'arn:aws:iam::962903071363:role/hello-lambda-role'
     },
     lambdaHashingVersion: '20201221',
+    websocketsApiName: '${self:service}-websockets',
+    websocketsApiRouteSelectionExpression: '$request.body.action',
   },
   layers: {
     MyLayer: {
